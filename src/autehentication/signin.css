@@ -1,0 +1,48 @@
+.signinpage{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center;
+}
+label{
+    display: block !important;
+    padding: 10px 0px;
+}
+.psw{
+    margin: 10px 0px;
+}
+.loginbtn{
+    margin: 20px 0px;
+}
+.cancelbtn{
+    background-color:red;
+    border: 1px solid red;
+    color: whitesmoke;
+}
+.signupbtn{
+    background-color: blue;
+    border: 1px solid blue;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+.signup-page{
+    width: 50vw;
+    margin: auto;
+}
+.loginbtn{
+    background-color: blue;
+    border: 1px solid blue;
+    color: whitesmoke;
+}
+.admine-era{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0xp 30px;
+}
+.add-region-page{
+    width: 75vw;
+    height: 100vh;
+    margin: auto;
+}
