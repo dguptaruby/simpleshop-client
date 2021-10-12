@@ -1,24 +1,28 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router'
+import StripeCheckout from 'react-stripe-checkout'
 import Header from '../../Header/Header'
+import Select from 'react-select'
+import countryList from 'react-select-country-list'
+
 
 function Products() {
     const history = useHistory()
     const token = localStorage.getItem('token')
-    const [orderdata, setOrderdata] = useState()
-
+    const [productdata, setProductdata] = useState()
+  
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_LINK}/orders`,
+        axios.get(`${process.env.REACT_APP_LINK}/products`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
-                setOrderdata(res.data)
+                setProductdata(res.data)
                 console.log(res.data)
-            })  
+            })
             .catch(err => console.log(err))
     }, [])
-
+   
     const removeOrder = (id) => {
 
         console.log('coming ...', id)
@@ -30,28 +34,35 @@ function Products() {
             })
             .catch(err => console.log(err))
     }
-    console.log(orderdata)
+    console.log(productdata)
+    const handleToken = ({token,addresses}) =>{
+        console.log({token,addresses})
+    }   
     return (
         <div className="container">
             <Header />
             <Row className="mt-5">
-                {orderdata && orderdata.map((value, index) => {
-                    return <Col sm={4} md={3}><Card style={{ width: '18rem', }} className="mb-2">
-                        <Card.Body>
-                            <Card.Title>{value.customer_name}</Card.Title>
-                            <Card.Text>
-                                shipping at : {value.shipping_address}
-                            </Card.Text>
-                            <Button variant="primary" onClick={() => { removeOrder(value.id) }}>Remove</Button>
-                            <Button variant=" ml-5 primary" onClick={() => history.push({
-                                pathname:"/editorder",
-                                state: {  // location state
-                                    value: value, 
-                                  },
-                            })}>Edit</Button>
+                {productdata && productdata.map((value, index) => {
+                    return <Col sm={4} md={3}>
+                        <Card style={{ width: '18rem', }} className="mb-2">
+                            <Card.Body>
+                                <Card.Title>{value.title}</Card.Title>
+                                <Card.Text>
+                                    {value.description}
+                                </Card.Text>
+                                <StripeCheckout
+                                stripeKey = "pk_test_51JjayBSEJSjz4vkycEAg6R5YaSnxBfJso95pVnu0oY9YUs64Q8Gln7MvNx2w8SutlFo7MGJDO53CgPhCY6ld4NWJ00vGW1U1Qn"
+                                token={handleToken}
+                                />
+                                {/* <Button variant="primary" onClick={() => history.push({
+                                    pathname: "/editorder",
+                                    state: {  // location state
+                                        value: value,
+                                    },
+                                })}>Buy</Button> */}
 
-                        </Card.Body>
-                    </Card>
+                            </Card.Body>
+                        </Card>
                     </Col>
                 })}
             </Row>

@@ -10,6 +10,7 @@ import AddProduct from './adminPage/Product';
 import Regions from './adminPage/Regions';
 import Products from './adminPage/products/Products';
 import EditOrder from './adminPage/order/EditOrder';
+import AllOrder from './adminPage/order/AllOrder';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route exact path="/admin-region" component={Regions} />
           <Route exact path="/admin-product/products" component={Products} />
           <Route exact path="/editorder" component={EditOrder} />
+          <Route exact path="/order" component={AllOrder} />
+
 
         </Switch>
       </Router>

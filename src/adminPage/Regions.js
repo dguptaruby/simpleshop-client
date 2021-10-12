@@ -1,36 +1,60 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useMemo, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils'
+import Select from 'react-select'
+import countryList from 'react-select-country-list'
 
 function Regions() {
-    return (<>
-        <Form className="add-region-page container">
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Title</Form.Label>
-                <Form.Control type="text" placeholder="Enter region name" />
+    const [regionname, setRegionname] = useState()
+    const [currency, setCurrency] = useState()
+    const [value, setValue] = useState('')
+    const [tax, settax] = useState()
+    const token = localStorage.getItem('token')
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        axios.post(`https:/rocky-basin-05289.herokuapp.com/regions`,
+        {
+            title:regionname,
+            country:value,
 
-            </Form.Group>
+            currency:currency,
+            tax:tax
+        },{ headers: {"Authorization" : `Bearer ${token}`}})
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err))
+    }
+    const changeHandler = value => {
+        setValue(value)
+      }
+      const options = useMemo(() => countryList().getData(), [])
 
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Country</Form.Label>
-                <Form.Control type="text" placeholder="Enter country name" />
+    return (
+        <>
+            <Form className="add-region-page container">
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control type="text" placeholder="Enter region name" onChange={(e)=>setRegionname(e.target.value)} />
 
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Currency</Form.Label>
-                <Form.Control type="text" placeholder="Enter currency name" />
+                </Form.Group>
 
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Tax</Form.Label>
-                <Form.Control type="percentage" placeholder="Enter tax " />
+                <Select options={options} value={value} onChange={changeHandler} />
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Currency</Form.Label>
+                    <Form.Control type="text" placeholder="Enter currency name" onChange={(e)=>setCurrency(e.target.value)}/>
 
-            </Form.Group>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Tax</Form.Label>
+                    <Form.Control type="percentage" placeholder="Enter tax" onChange={(e)=>settax(e.target.value)} />
 
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-        </Form>
-    </>
+                </Form.Group>
+
+                <Button variant="primary" type="submit" onClick={handleSubmit}>
+                    Submit
+                </Button>
+            </Form>
+        </>
     )
 }
 
