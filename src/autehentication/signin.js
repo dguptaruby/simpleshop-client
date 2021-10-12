@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
-import env  from 'react-dotenv'
 import './signin.css'
 function Signin() {
 
@@ -38,7 +37,7 @@ function Signin() {
                 <button className="loginbtn" type="submit" onClick={handleSubmit}>Login</button>
             
                 <div>
-                    <span className="psw">Forgot <a href="#">password?</a></span>
+                    <span className="psw">Forgot <a href="/forget">password?</a></span>
                 </div>
             </form>
         </div>

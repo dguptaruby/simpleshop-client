@@ -33,7 +33,7 @@ function AllOrder() {
     return (
         <div className="container">
         <Header />
-        <h1 className="mt-3" style={{fontFamily:"poppins-regular"}}>Your orders are</h1>
+        <h1 className="mt-5" style={{fontFamily:"poppins-regular"}}>Your orders are</h1>
         <Row className="mt-5">
             {orderdata && orderdata.map((value, index) => {
                 return <Col sm={4} md={3}><Card style={{ width: '18rem', }} className="mb-2">

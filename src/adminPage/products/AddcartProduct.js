@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { useHistory, useLocation } from 'react-router'
 import StripeCheckout from 'react-stripe-checkout'
 import Header from '../../Header/Header'

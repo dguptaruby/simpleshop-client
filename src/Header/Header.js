@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Container, Modal, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import React from 'react'
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
     import { Link } from 'react-router-dom'
 
 function Header() {

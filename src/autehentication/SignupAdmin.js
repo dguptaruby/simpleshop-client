@@ -9,7 +9,7 @@ function SignupAdmin() {
     
     const history = useHistory()
     
-    const [value, setValue] = useState('')
+    // const [value, setValue] = useState('')
     const [isadmin, setIsAdmin] = useState(false)
     console.log(isadmin )
     
@@ -19,8 +19,8 @@ function SignupAdmin() {
         axios.post(`${process.env.REACT_APP_LINK}/users?email=${email}&password=${password}`,{is_admin:isadmin})
         .then(res=>{
             localStorage.setItem('token',res.data.token)
-            console.log(res.data)
-            if(isadmin==true){
+            console.log(res)
+            if(isadmin===true){
                 history.push('/admin')
             }
             else{
@@ -32,7 +32,7 @@ function SignupAdmin() {
     }
     
     const changeHandler = value => {
-        setValue(value)
+        // setValue(value)
         if(value.value==="admin"){
             setIsAdmin(true)
             console.log(isadmin)
@@ -64,7 +64,7 @@ function SignupAdmin() {
                 <Select options={options} onChange={changeHandler} />
 
                 </div>
-                <p>By creating an account you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
+                <p>By creating an account you agree to our <a href="/terms" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
 
                 <div className="clearfix">
                     <button type="button" className="cancelbtn">Cancel</button>

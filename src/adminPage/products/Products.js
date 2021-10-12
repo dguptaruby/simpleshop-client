@@ -1,11 +1,8 @@
 import axios from 'axios'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
 import { useHistory } from 'react-router'
-import StripeCheckout from 'react-stripe-checkout'
 import Header from '../../Header/Header'
-import Select from 'react-select'
-import countryList from 'react-select-country-list'
 
 
 function Products() {
