@@ -19,16 +19,16 @@ function Products() {
             .catch(err => console.log(err))
     }, [])
 
-    const removeOrder = (id) => {
+    // const removeOrder = (id) => {
 
-        axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
-            { headers: { "Authorization": `Bearer ${token}` } })
-            .then((res) => {
-                console.log(res)
-                window.location.reload()
-            })
-            .catch(err => console.log(err))
-    }
+    //     axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
+    //         { headers: { "Authorization": `Bearer ${token}` } })
+    //         .then((res) => {
+    //             console.log(res)
+    //             window.location.reload()
+    //         })
+    //         .catch(err => console.log(err))
+    // }
   
     return (
         <div className="container">

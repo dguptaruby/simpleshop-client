@@ -2,9 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Home from './home/Home';
 import Signin from './autehentication/signin';
-import Signup from './autehentication/SignupAdmin';
 import SignupAdmin from './autehentication/SignupAdmin';
-import SignupUser from './autehentication/Signupuser';
 import Admin from './adminPage/Admin';
 import AddProduct from './adminPage/Product';
 import Regions from './adminPage/Regions';

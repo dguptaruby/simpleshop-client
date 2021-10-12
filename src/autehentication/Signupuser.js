@@ -28,9 +28,6 @@ function SignupUser() {
                 <input type="password" placeholder="Enter Password" name="psw" required 
                 onChange={(e)=>setpassword(e.target.value)}/>
 
-
-                <p>By creating an account you agree to our <a href="#" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
-
                 <div className="clearfix">
                     <button type="button" className="cancelbtn">Cancel</button>
                     <button type="submit" className="signupbtn ml-1" onClick={handleSubmit}>Sign Up</button>

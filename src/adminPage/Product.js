@@ -33,7 +33,6 @@ function AddProduct() {
     }
 
     useEffect(() => {
-        var newarr = []
         axios.get(`${process.env.REACT_APP_LINK}/regions`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
