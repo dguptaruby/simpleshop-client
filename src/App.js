@@ -11,6 +11,7 @@ import Regions from './adminPage/Regions';
 import Products from './adminPage/products/Products';
 import EditOrder from './adminPage/order/EditOrder';
 import AllOrder from './adminPage/order/AllOrder';
+import AddcartProduct from './adminPage/products/AddcartProduct';
 
 function App() {
   return (
@@ -20,16 +21,15 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signupadmin" component={SignupAdmin} />
-          <Route exact path="/signupuser" component={SignupUser} />
           <Route exact path="/admin" component={Admin} />
           <Route exact path="/admin-product" component={AddProduct} />
           <Route exact path="/admin-region" component={Regions} />
           <Route exact path="/admin-product/products" component={Products} />
           <Route exact path="/editorder" component={EditOrder} />
           <Route exact path="/order" component={AllOrder} />
+          <Route exact path="/Addcartproduct" component={AddcartProduct} />
 
-
-        </Switch>
+          </Switch>
       </Router>
 
     </div>

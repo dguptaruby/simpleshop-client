@@ -3,25 +3,11 @@ import { Container, Modal, Nav, Navbar, NavDropdown } from 'react-bootstrap'
     import { Link } from 'react-router-dom'
 
 function Header() {
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+ 
 
     return (
         <div>
-            <Modal show={show} onHide={handleClose}>
-
-                <Modal.Body>How would you like to signup!</Modal.Body>
-                <Modal.Footer>
-                    <Link variant="primary" to="/signupadmin">
-                        Admin
-                    </Link>
-                    <Link variant="primary" to="/signupuser">
-                        User
-                    </Link>
-                </Modal.Footer>
-            </Modal>
+      
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                 <Container>
                     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -39,10 +25,11 @@ function Header() {
                             </NavDropdown>
                         </Nav>
                         <Nav>
-                            <Link to="/signin" className="mt-2" href="#deets" style={{textDecoration:"none"}}>Signin</Link>
-                            <Nav.Link onClick={handleShow} eventKey={2} href="#memes">
+                            <Link to="/signin" className="mr-2" href="#deets" style={{textDecoration:"none"}}>Signin</Link>
+                            <Link eventKey={2} className="ml-2" to="/signupadmin" style={{textDecoration:"none",
+                            border:"1px soild white"}}>
                                 Signup
-                            </Nav.Link>
+                            </Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -33,6 +33,7 @@ function AllOrder() {
     return (
         <div className="container">
         <Header />
+        <h1 className="mt-3" style={{fontFamily:"poppins-regular"}}>Your orders are</h1>
         <Row className="mt-5">
             {orderdata && orderdata.map((value, index) => {
                 return <Col sm={4} md={3}><Card style={{ width: '18rem', }} className="mb-2">
@@ -41,7 +42,7 @@ function AllOrder() {
                         <Card.Text>
                             shipping at : {value.shipping_address}
                         </Card.Text>
-                        <Button variant="primary" onClick={() => { removeOrder(value.id) }}>Remove</Button>
+                        <Button variant="primary" onClick={() => { removeOrder(value.id) }}>Cancel</Button>
                         <Button variant=" ml-5 primary" onClick={() => history.push({
                             pathname:"/editorder",
                             state: {  // location state

@@ -12,7 +12,7 @@ function Products() {
     const history = useHistory()
     const token = localStorage.getItem('token')
     const [productdata, setProductdata] = useState()
-  
+
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_LINK}/products`,
             { headers: { "Authorization": `Bearer ${token}` } })
@@ -22,7 +22,7 @@ function Products() {
             })
             .catch(err => console.log(err))
     }, [])
-   
+
     const removeOrder = (id) => {
 
         console.log('coming ...', id)
@@ -35,9 +35,7 @@ function Products() {
             .catch(err => console.log(err))
     }
     console.log(productdata)
-    const handleToken = ({token,addresses}) =>{
-        console.log({token,addresses})
-    }   
+  
     return (
         <div className="container">
             <Header />
@@ -48,18 +46,19 @@ function Products() {
                             <Card.Body>
                                 <Card.Title>{value.title}</Card.Title>
                                 <Card.Text>
-                                    {value.description}
+                                   desc: {value.description}
                                 </Card.Text>
-                                <StripeCheckout
-                                stripeKey = "pk_test_51JjayBSEJSjz4vkycEAg6R5YaSnxBfJso95pVnu0oY9YUs64Q8Gln7MvNx2w8SutlFo7MGJDO53CgPhCY6ld4NWJ00vGW1U1Qn"
-                                token={handleToken}
-                                />
-                                {/* <Button variant="primary" onClick={() => history.push({
-                                    pathname: "/editorder",
+                                <Card.Text>
+                                    price:{value.price}
+                                </Card.Text>
+                               
+                               
+                                <Button variant="primary" onClick={() => history.push({
+                                    pathname: "/Addcartproduct",
                                     state: {  // location state
                                         value: value,
                                     },
-                                })}>Buy</Button> */}
+                                })}>Buy</Button>
 
                             </Card.Body>
                         </Card>

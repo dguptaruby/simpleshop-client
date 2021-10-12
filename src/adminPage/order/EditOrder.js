@@ -22,7 +22,7 @@ function EditOrder() {
         }
             ,{ headers: { "Authorization": `Bearer ${token}` } })
         .then(res=>
-            history.push('/admin-product/products'))
+            history.push('/order'))
         .catch(err=>console.log(err))
 
     }

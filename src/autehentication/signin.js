@@ -18,6 +18,7 @@ function Signin() {
         .catch(err=>alert('Incorrect id or password'))
         e.preventDefault()
     }
+    console.log(email,password)
     return (
         <div className="container">
             <form className="signinpage" method="post">
