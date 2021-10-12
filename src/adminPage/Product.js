@@ -49,7 +49,6 @@ function AddProduct() {
     const changeHandler = value =>{
         setselectedregion(value)
     }   
-    console.log(selectedregion)
     return (
         <div className=" add-region-page container">
             <h1>Create your product</h1>

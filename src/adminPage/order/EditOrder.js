@@ -26,7 +26,6 @@ function EditOrder() {
         .catch(err=>console.log(err))
 
     }
-    console.log(shippingAddress)
     return (
         <div className="container">
             <Header />

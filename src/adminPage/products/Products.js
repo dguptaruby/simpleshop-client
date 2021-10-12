@@ -15,14 +15,12 @@ function Products() {
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 setProductdata(res.data)
-                console.log(res.data)
             })
             .catch(err => console.log(err))
     }, [])
 
     const removeOrder = (id) => {
 
-        console.log('coming ...', id)
         axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then((res) => {
@@ -31,14 +29,13 @@ function Products() {
             })
             .catch(err => console.log(err))
     }
-    console.log(productdata)
   
     return (
         <div className="container">
             <Header />
             <Row className="mt-5">
                 {productdata && productdata.map((value, index) => {
-                    return <Col sm={4} md={3}>
+                    return <Col sm={4} md={3} key={index} >
                         <Card style={{ width: '18rem', }} className="mb-2">
                             <Card.Body>
                                 <Card.Title>{value.title}</Card.Title>

@@ -28,7 +28,6 @@ function AddcartProduct() {
             .then(res=>history.push('/order'))
             .catch(err=>console.log(err))
     }
-    console.log(customer_name, shipping_address)
     return (
         <div className="container">
             <Header />

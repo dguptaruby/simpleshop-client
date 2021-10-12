@@ -4,7 +4,6 @@ import { useHistory } from 'react-router'
 import './signin.css'
 function Signin() {
 
-    console.log(process.env)
     const [email, setemail] = useState()
     const [password, setpassword] = useState()
     const history = useHistory()
@@ -17,7 +16,6 @@ function Signin() {
         .catch(err=>alert('Incorrect id or password'))
         e.preventDefault()
     }
-    console.log(email,password)
     return (
         <div className="container">
             <form className="signinpage" method="post">

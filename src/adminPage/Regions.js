@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useMemo, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useHistory } from 'react-router'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
 function Regions() {
+    const history = useHistory()
     const [regionname, setRegionname] = useState()
     const [currency, setCurrency] = useState()
     const [value, setValue] = useState('')
@@ -19,16 +21,14 @@ function Regions() {
                 currency: currency,
                 tax: tax
             }, { headers: { "Authorization": `Bearer ${token}` } })
-            .then(res => console.log(res))
+            .then(res => history.push('/admin'))
             .catch(err => console.log(err))
     }
     const changeHandler = value => {
         const countrycode = value.value
-        console.log(countrycode,"",value.value)
         setValue(countrycode)
     }
     const options = useMemo(() => countryList().getData(), [])
-    console.log(value)
     return (
         <>
             <Form className="add-region-page container">
@@ -43,7 +43,7 @@ function Regions() {
                     <Select options={options} value={value} onChange={changeHandler} />
 
                 </Form.Group>
-                
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Currency</Form.Label>
                     <Form.Control type="text" placeholder="Enter currency name" onChange={(e) => setCurrency(e.target.value)} />

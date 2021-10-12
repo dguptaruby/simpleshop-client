@@ -26,7 +26,7 @@ function Header() {
                         </Nav>
                         <Nav>
                             <Link to="/signin" className="mr-2" href="#deets" style={{textDecoration:"none"}}>Signin</Link>
-                            <Link eventKey={2} className="ml-2" to="/signupadmin" style={{textDecoration:"none",
+                            <Link eventkey={2} className="ml-2" to="/signupadmin" style={{textDecoration:"none",
                             border:"1px soild white"}}>
                                 Signup
                             </Link>

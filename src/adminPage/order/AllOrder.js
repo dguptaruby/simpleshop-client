@@ -13,14 +13,12 @@ function AllOrder() {
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 setOrderdata(res.data)
-                console.log(res.data)
             })  
             .catch(err => console.log(err))
     }, [])
 
     const removeOrder = (id) => {
 
-        console.log('coming ...', id)
         axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then((res) => {
@@ -29,14 +27,13 @@ function AllOrder() {
             })
             .catch(err => console.log(err))
         }
-        console.log(orderdata);
     return (
         <div className="container">
         <Header />
         <h1 className="mt-5" style={{fontFamily:"poppins-regular"}}>Your orders are</h1>
         <Row className="mt-5">
             {orderdata && orderdata.map((value, index) => {
-                return <Col sm={4} md={3}><Card style={{ width: '18rem', }} className="mb-2">
+                return <Col sm={4} md={3} key={index}><Card key={index} style={{ width: '18rem', }} className="mb-2">
                     <Card.Body>
                         <Card.Title>{value.customer_name}</Card.Title>
                         <Card.Text>

@@ -5,7 +5,6 @@ function SignupUser() {
     const [email, setemail] = useState()
     const [password, setpassword] = useState()
     const handleSubmit = (e) =>{
-        console.log(email,password);
         axios.post(`${process.env.REACT_APP_LINK}/users?email=${email}&password=${password}`)
         .then(res=>{
             console.log(res.data.token)

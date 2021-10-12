@@ -11,7 +11,6 @@ function SignupAdmin() {
     
     // const [value, setValue] = useState('')
     const [isadmin, setIsAdmin] = useState(false)
-    console.log(isadmin )
     
     
     const handleSubmit = (e) =>{
@@ -19,7 +18,6 @@ function SignupAdmin() {
         axios.post(`${process.env.REACT_APP_LINK}/users?email=${email}&password=${password}`,{is_admin:isadmin})
         .then(res=>{
             localStorage.setItem('token',res.data.token)
-            console.log(res)
             if(isadmin===true){
                 history.push('/admin')
             }
@@ -35,12 +33,8 @@ function SignupAdmin() {
         // setValue(value)
         if(value.value==="admin"){
             setIsAdmin(true)
-            console.log(isadmin)
         }
-        else{
-            console.log('comehere')
-
-        }
+      
       }
     const options = [
         { value: 'admin', label: 'admin' },
