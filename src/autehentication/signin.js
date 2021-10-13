@@ -8,7 +8,6 @@ function Signin() {
     const [password, setpassword] = useState()
     const history = useHistory()
     const handleSubmit = (e) =>{
-        console.log(email,password);
         axios.post(`${process.env.REACT_APP_LINK}/login?email=${email}&password=${password}`)
         .then(res=>{
             console.log(res)

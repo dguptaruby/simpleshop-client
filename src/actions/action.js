@@ -22,8 +22,6 @@ export const auth_login = (data) => {
 }
 
 export const checklogin = (user) => {
-    console.log('fffffffffff');
-    console.log('came here1')
 
     return {
         type: "check_login",
