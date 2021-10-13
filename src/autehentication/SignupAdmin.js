@@ -12,7 +12,7 @@ function SignupAdmin() {
     // const [value, setValue] = useState('')
     const [isadmin, setIsAdmin] = useState(false)
     const handleSubmit = (e) => {
-        axios.post(`https:/rocky-basin-05289.herokuapp.com/users?email=${email}&password=${password}`, { is_admin: isadmin })
+        axios.post(`https://rocky-basin-05289.herokuapp.com/users?email=${email}&password=${password}`, { is_admin: isadmin })
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 if (isadmin === true) {
