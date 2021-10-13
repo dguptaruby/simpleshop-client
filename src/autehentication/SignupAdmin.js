@@ -15,9 +15,9 @@ function SignupAdmin() {
     
     const handleSubmit = (e) =>{
         console.log(email,password);
+        console.log(process.env)
         axios.post(`${process.env.REACT_APP_LINK}/users?email=${email}&password=${password}`,{is_admin:isadmin})
         .then(res=>{
-            console.log(res)
             localStorage.setItem('token',res.data.token)
             if(isadmin===true){
                 history.push('/admin')
