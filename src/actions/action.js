@@ -5,8 +5,7 @@ export const auth_login = (data) => {
     return (dispatch) => {
   
           if (token === null) {
-              console.log('fffffffff'); 
-            localStorage.setItem("token");
+            localStorage.setItem("token","");
             token = "";
     
           }
