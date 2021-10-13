@@ -24,5 +24,4 @@ yarn-error.log*
 
 
 # env file
-.env
 node_modules
