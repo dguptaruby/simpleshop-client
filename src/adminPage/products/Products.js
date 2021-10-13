@@ -11,25 +11,14 @@ function Products() {
     const [productdata, setProductdata] = useState()
 
     useEffect(() => {
-        axios.get(`https:/rocky-basin-05289.herokuapp.com/products`,
-            { headers: { "Authorization": `Bearer ${token}` } })
+        axios.get(`${process.env.REACT_APP_LINK}/products`, { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 setProductdata(res.data)
             })
             .catch(err => console.log(err))
     }, [])
 
-    // const removeOrder = (id) => {
 
-    //     axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
-    //         { headers: { "Authorization": `Bearer ${token}` } })
-    //         .then((res) => {
-    //             console.log(res)
-    //             window.location.reload()
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-  
     return (
         <div className="container">
             <Header />

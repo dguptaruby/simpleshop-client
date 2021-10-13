@@ -10,7 +10,6 @@ function Signin() {
     const handleSubmit = (e) =>{
         axios.post(`${process.env.REACT_APP_LINK}/login?email=${email}&password=${password}`)
         .then(res=>{
-            console.log(res)
             if(res.data.error){
                 alert(res.data.error)
             }else{

@@ -7,8 +7,6 @@ import Header from '../Header/Header'
 function Home() {
     const [userData, setuserData] = useState()
     const history = useHistory()
-     const state = useSelector(state => state)
-     console.log(state)
 
     return (
         <div>

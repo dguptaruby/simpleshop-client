@@ -37,7 +37,7 @@ function AddcartProduct() {
             <input placeholder="Enter shipping address" onChange={(e) => setshipping_address(e.target.value)} />
             <h5 className="mt-4">Product detail:</h5>
             <Card style={{ width: '18rem' }} className="mt-4">
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <img src={value.image} />
                 <Card.Body>
                     <Card.Title>{value.title}</Card.Title>
                     <Card.Text>

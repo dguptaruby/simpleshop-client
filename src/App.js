@@ -10,15 +10,10 @@ import Products from './adminPage/products/Products';
 import EditOrder from './adminPage/order/EditOrder';
 import AllOrder from './adminPage/order/AllOrder';
 import AddcartProduct from './adminPage/products/AddcartProduct';
-import { useDispatch } from 'react-redux';
-import { auth_login } from './actions/action';
-import { useEffect } from 'react';
+
 
 function App() {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(auth_login())
-  }, [])
+ 
   return (
     <div className="App">
       <Router>
