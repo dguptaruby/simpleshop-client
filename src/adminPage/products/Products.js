@@ -11,7 +11,7 @@ function Products() {
     const [productdata, setProductdata] = useState()
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_LINK}/products`,
+        axios.get(`https:/rocky-basin-05289.herokuapp.com/products`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 setProductdata(res.data)
