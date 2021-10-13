@@ -11,9 +11,15 @@ function Signin() {
         console.log(email,password);
         axios.post(`${process.env.REACT_APP_LINK}/login?email=${email}&password=${password}`)
         .then(res=>{
-            history.push('/admin-product/products')
+            console.log(res)
+            if(res.data.error){
+                alert(res.data.error)
+            }else{
+                history.push('/admin-product/products')
+
+            }
         })
-        .catch(err=>alert('Incorrect id or password'))
+        .catch(err=>alert(err))
         e.preventDefault()
     }
     return (

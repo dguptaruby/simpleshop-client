@@ -12,6 +12,7 @@ import AllOrder from './adminPage/order/AllOrder';
 import AddcartProduct from './adminPage/products/AddcartProduct';
 
 function App() {
+
   return (
     <div className="App">
       <Router>
@@ -27,7 +28,7 @@ function App() {
           <Route exact path="/order" component={AllOrder} />
           <Route exact path="/Addcartproduct" component={AddcartProduct} />
 
-          </Switch>
+        </Switch>
       </Router>
 
     </div>

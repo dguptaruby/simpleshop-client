@@ -17,6 +17,7 @@ function SignupAdmin() {
         console.log(email,password);
         axios.post(`${process.env.REACT_APP_LINK}/users?email=${email}&password=${password}`,{is_admin:isadmin})
         .then(res=>{
+            console.log(res)
             localStorage.setItem('token',res.data.token)
             if(isadmin===true){
                 history.push('/admin')
@@ -58,7 +59,6 @@ function SignupAdmin() {
                 <Select options={options} onChange={changeHandler} />
 
                 </div>
-                <p>By creating an account you agree to our <a href="/terms" style={{ color: "dodgerblue" }}>Terms & Privacy</a>.</p>
 
                 <div className="clearfix">
                     <button type="button" className="cancelbtn">Cancel</button>

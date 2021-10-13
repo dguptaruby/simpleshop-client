@@ -6,7 +6,7 @@ import Header from '../../Header/Header'
 
 
 function Products() {
-    const history = useHistory()
+    let history = useHistory();
     const token = localStorage.getItem('token')
     const [productdata, setProductdata] = useState()
 

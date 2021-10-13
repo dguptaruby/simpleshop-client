@@ -18,8 +18,8 @@ function AllOrder() {
     }, [])
 
     const removeOrder = (id) => {
-
-        axios.delete(`${process.env.REACT_APP_LINK}/${id}`,
+        
+        axios.delete(`${process.env.REACT_APP_LINK}/orders/${id}`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then((res) => {
                 console.log(res)
