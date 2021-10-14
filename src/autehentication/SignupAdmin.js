@@ -40,7 +40,7 @@ function SignupAdmin() {
     return (
         <form style={{ border: "1px solid #ccc" }}>
             <div className="signup-page container">
-                <h1>Sign Up as admin</h1>
+                <h1>Sign Up</h1>
                 <p>Please fill in this form to create an account.</p>
                 <hr />
 

@@ -7,10 +7,11 @@ import Header from '../Header/Header'
 function Home() {
     const [userData, setuserData] = useState()
     const history = useHistory()
-
+    const user = useSelector(state => state)
+    console.log(user);
     return (
         <div>
-            <Header/>
+           {user?.token?<Header/>:""}
         </div>
     )
 }

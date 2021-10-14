@@ -15,7 +15,7 @@ function Products() {
             .then(res => {
                 setProductdata(res.data)
             })
-            .catch(err => console.log(err))
+            .catch(err => history.push('/signin'))
     }, [])
 
 

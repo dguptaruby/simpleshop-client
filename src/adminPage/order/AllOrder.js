@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Row } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import Header from '../../Header/Header'
 function AllOrder() {
@@ -8,13 +9,18 @@ function AllOrder() {
     const token = localStorage.getItem('token')
     const [orderdata, setOrderdata] = useState()
 
+    const user = useSelector(state => state)
+    
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_LINK}/orders`,
+
+            axios.get(`${process.env.REACT_APP_LINK}/orders`,
             { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
+                console.log(token)
                 setOrderdata(res.data)
             })  
-            .catch(err => console.log(err))
+            .catch(err => history.push('/signin'))
+      
     }, [])
 
     const removeOrder = (id) => {
@@ -28,11 +34,13 @@ function AllOrder() {
             .catch(err => console.log(err))
         }
     return (
+
         <div className="container">
         <Header />
         <h1 className="mt-5" style={{fontFamily:"poppins-regular"}}>Your orders are</h1>
         <Row className="mt-5">
-            {orderdata && orderdata.map((value, index) => {
+            {
+            orderdata && orderdata.map((value, index) => {
                 return <Col sm={4} md={3} key={index}><Card key={index} style={{ width: '18rem', }} className="mb-2">
                     <Card.Body>
                         <Card.Title>{value.customer_name}</Card.Title>
@@ -50,9 +58,11 @@ function AllOrder() {
                     </Card.Body>
                 </Card>
                 </Col>
-            })}
+            })
+            }
         </Row>
     </div>
+        
     )
 }
 
